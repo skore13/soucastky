@@ -41,6 +41,7 @@
 body {
 	background-color: #E0E4CC;
 	min-width: 800px;
+	overflow-x: hidden;
 }
 
 
