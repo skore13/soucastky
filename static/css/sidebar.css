@@ -1,0 +1,54 @@
+
+#title {
+	text-align: center;
+	font-weight: bold;
+	padding-top: 25px;
+	font-size: 3.5em;
+	color: #69D2E7;
+}
+
+#author {
+	padding-top: 10px;
+	text-align: center;
+	padding-bottom: 10px;
+	color: #bbb;
+}
+
+#sidebar {
+	float: left;
+	min-height:100%;
+	background-color: #222;
+	width: 300px;
+	padding: 0 20px;
+}
+
+#cathegories {
+	width: 280px;
+	color: #A7DBD8;
+	padding-left: 20px;
+	cursor: default;
+}
+
+.cathegory-content {
+	overflow: hidden;
+	padding-left: 20px;
+	display: none;
+}
+
+.cathegory-leaf {
+	line-height: 26px;
+	cursor: pointer;
+}
+
+.cathegory-leaf:hover, .cathegory-header:hover {
+	font-style: italic;
+}
+
+.cathegory-header {
+	padding-top: 10px;
+	font-weight: bold;
+}
+
+.selected {
+	color: #F38630;
+}
