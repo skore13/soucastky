@@ -10,98 +10,37 @@
 	<script src="dependencies/isotope.min.js"></script>
 	
 	<script src="static/js/messages.js"></script>
+	<script src="static/js/db.js"></script>
+	<script src="static/js/bars.js"></script>
+	<script src="static/js/part-view.js"></script>
+	<script src="static/js/data-loader.js"></script>
 	<script src="static/js/load-app.js"></script>
-	<script src="static/js/sidebar.js"></script>
-	<script src="static/js/filters.js"></script>
+	<script>
+		var dbversion = {
+			cathegories: 2,
+			parts: 2
+		};
+	</script>
 	
 	<title>Databáze součástek</title>
 </head>
 <body style="width:100%; height: 100%; margin: 0px;">
-	<div id="sidebar">
+	<div id="sidebar"  style="display: none">
 		<div id="title">
 			Databáze součástek
 		</div>
 		<div id="author">
 			Jakub Skořepa (2014)
 		</div>
-		<div id="cathegories">
-			<div class="super-cathegory">
-				<div class="cathegory-header">Monitory</div>
-				<div class="cathegory-content">
-					<div class="cathegory-leaf">CRT</div>
-					<div class="cathegory-leaf">LCD</div>
-				</div>
-			</div>
-			<div class="super-cathegory">
-				<div class="cathegory-header">Součástky</div>
-				<div class="cathegory-content">
-					<div class="super-cathegory">
-						<div class="cathegory-header">Pasivní</div>
-						<div class="cathegory-content">
-							<div class="cathegory-leaf">Rezistory</div>
-							<div class="cathegory-leaf">Cívky</div>
-						</div>
-					</div>
-					<div class="super-cathegory">
-						<div class="cathegory-header">NE-Pasivní</div>
-						<div class="cathegory-content">
-							<div class="cathegory-leaf">Cathegorie 1</div>
-							<div class="cathegory-leaf">CPU</div>
-						</div>
-					</div>
-					<div class="cathegory-leaf">Rebel</div>
-				</div>
-			</div>
-		</div>
+		<div id="cathegories"></div>
 	</div>
-	<div id="main-content">
+	<div id="main-content" style="display: none">
 		<div id="top-bar">
 			<div id="filter-div">
 				<input id="filter" type="search">
 			</div>
 		</div>
-		<div id="soucastky">
-			<div class="soucastka">
-				<div class="name">1K</div>
-				<div class="cathegory">Rezistory</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">1K2</div>
-				<div class="cathegory">Rezistory</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">10K</div>
-				<div class="cathegory">Rezistory</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">100R</div>
-				<div class="cathegory">Rezistory</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">12K</div>
-				<div class="cathegory">Rezistory</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">ATmega8</div>
-				<div class="cathegory">CPU</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">ATmega16</div>
-				<div class="cathegory">CPU</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">ATmega32</div>
-				<div class="cathegory">CPU</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">ATmega32</div>
-				<div class="cathegory">CPU</div>
-			</div>
-			<div class="soucastka">
-				<div class="name">ATmega32</div>
-				<div class="cathegory">CPU</div>
-			</div>
-		</div>
+		<div id="soucastky"></div>
 	</div>
 	<div id="fixed-content">
 		<div class="centerer">

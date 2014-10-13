@@ -1,3 +1,9 @@
+/*
+ *
+ *	Zobrazování horního panelu se zprávou(-ami)
+ *
+ */
+
 ui = {
 		errored: false,
 		slideState: 0, // 0 - hidden 1 - sliding down 2 - shown 3 - sliding up
@@ -32,7 +38,7 @@ ui = {
 					$("#info").stop().stop().stop().stop();
 					$("#info")
 						.slideDown({
-							duration: 200-200*progress,
+							duration: 200-200*ui.progress,
 							step: function(now,fx){ui.progress = now/fx.end;},
 							done: function(){ui.slideState=2}
 						})

@@ -1,4 +1,14 @@
-$( document ).ready(function (){
+/*
+ *
+ *	Script starající se o zobrazení a chování postraní a horní lišty (kategorie a vyhledávání)
+ *  + velikost oblasti pro součástky (podle velikosti postraního panelu)
+ *
+ */
+ 
+ui.initBars = function (){
+	/*************
+	 *  Appearance
+	 *************/
 	$(".cathegory-content").each(function(){
 		$(this).prepend("<div style=\"float:left;\"><img src=static/img/bar.png style=\"position:relative; left:-15px; height:"+$(this).height()+"px; width:2.5px\"></div>");
 	});
@@ -45,5 +55,36 @@ $( document ).ready(function (){
 		$("#sidebar").height($("html").height());
 	});
 	$( window ).resize();
-});
+	
+	/*************
+	 *  Events
+	 *************/
+	
+	$(".cathegory-leaf").click(function(){
+		if($(this).is(".selected")){
+			db.showItemsInCat(
+				Number($(this).attr("data-id")),
+				function(name, cat){ui.addPart(name,cat,true);},
+				function(){ui.appendIt();}
+			);
+		}else{
+			db.showItemsInCat(
+				Number($(this).attr("data-id")),
+				function(name,cat){ui.removePart(name,cat)},
+				function(){$("#soucastky").isotope('layout');}
+			);
+		}
+		ui.filter();
+	});
+	$("#filter").on("input",ui.filter);
+	
+	$("#filter").focusin(function(){
+		$("#filter-div").addClass("focused");
+	});
+	$("#filter").focusout(function(){
+		$("#filter-div").removeClass("focused");
+	});
+	
+	ui.initParts();
+};
 
