@@ -18,6 +18,7 @@ index.html -> hlavní vstupní bod aplikace
 Obsahuje hierarchii kategorií
 
 Formát:
+
 *	Kategorie se zapisuje ve formátu id: Název kategorie
 *	Mezera je nutná
 *	id je celé číslo a je v celém dokumentu unikátní
@@ -33,6 +34,7 @@ Ve formátu dsv(delimiter separated values) se znakem tabulátoru jako oddělova
 Řádky začínající # jsou komentáře
 
 Sloupce jsou popořadě:
+
 1.	X - značí pořadí šuplíčku od spodku skříně (počítáme od 1)
 1.	Y - značí pořadí šuplíčku od levého okraje skříně (počítáme od 1)
 1.	CAT - ID kategorie ze souboru cathegories.data
