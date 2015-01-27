@@ -17,8 +17,8 @@
 	<script src="static/js/load-app.js"></script>
 	<script>
 		var dbversion = {
-			cathegories: 2,
-			parts: 2
+			cathegories: 3,
+			parts: 3
 		};
 	</script>
 	
@@ -30,7 +30,7 @@
 			Databáze součástek
 		</div>
 		<div id="author">
-			Jakub Skořepa (2014)
+			Jakub Skořepa (2014 - 2015)
 		</div>
 		<div id="cathegories"></div>
 	</div>
@@ -46,9 +46,9 @@
 		<div class="centerer">
 			<div id="info" style="display:none; zindex:1000;"><span id="info-text"></span><i class="fa fa-times" id="hide-info"></i></div>
 		</div>
-		<div class="debug" >
-			<div onclick="indexedDB.deleteDatabase('test')">Delete DB</div>
-			<div>Debug 2</div>
+		<div class="debug" style="z-index:10000;pointer-events:all;">
+			<div onclick="indexedDB.deleteDatabase('parts');console.log('test');localStorage.clear();">Delete DB</div>
+			<!--<div>Debug 2</div>-->
 		</div>
 	</div>
 </body>

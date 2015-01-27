@@ -18,10 +18,11 @@ ui.filter = function (){
 		var filter = $("#filter").val();
 		return name.match(new RegExp(filter,"i"));
 	} });
+	$(window).resize();
 }
 ui.toBeAppended = "";
 ui.addPart = function(name, cathegory, wait) {
-	ui.toBeAppended+='<div class="soucastka" id="soucastka-'+name.replace(" ","-")+'"> \
+	ui.toBeAppended+='<div class="soucastka" id="soucastka-'+name.replace(/ /g,"-").replace(/\./g,"-")+'"> \
 				<div class="name">'+name+'</div> \
 				<div class="cathegory">'+loader.cathegories[Number(cathegory)]+'</div> \
 			  </div>';
@@ -36,5 +37,5 @@ ui.appendIt = function() {
 	ui.toBeAppended = "";
 }
 ui.removePart = function(name, cathegory) {
-	$("#soucastky").isotope("remove",$("#soucastka-"+name.replace(" ","-")));
+	$("#soucastky").isotope("remove",$("#soucastka-"+name.replace(/ /g,"-").replace(/\./g,"-")));
 }

@@ -10,6 +10,7 @@ var loader = {
 	builder: "",
 	load: function() {
 		if(localStorage.length == 0){
+			console.log("null");
 			localStorage.cathegories = -1;
 			localStorage.parts = -1;
 		} 
@@ -53,10 +54,10 @@ var loader = {
 		indexedDB.deleteDatabase("parts");
 		db.start(function(){
 			$.get("data/parts.data",function(p){
-			p = p.split("\n");
-			loader.loadPartRec(p);
-		});
-		localStorage.parts = dbversion.parts;
+				p = p.split("\n");
+				loader.loadPartRec(p);
+			});
+			localStorage.parts = dbversion.parts;
 		});
 	},
 	loadPartRec: function(lines, id){

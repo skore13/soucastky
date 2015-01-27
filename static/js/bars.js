@@ -4,6 +4,13 @@
  *  + velikost oblasti pro součástky (podle velikosti postraního panelu)
  *
  */
+
+ui.getScrollBarWidth = function () {
+	var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+	widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+	$outer.remove();
+	return 100 - widthWithScroll;
+};
  
 ui.initBars = function (){
 	/*************
@@ -46,9 +53,9 @@ ui.initBars = function (){
 	
 	$( window ).resize(function (){
 		if($("#sidebar").css("display")=="none"){
-			$("#main-content").width($("body").width());
+			$("#main-content").width($("body").width()-ui.getScrollBarWidth());
 		}else{
-			$("#main-content").width($("body").width()-$("#sidebar").width()-40);
+			$("#main-content").width($("body").width()-$("#sidebar").width()-40-ui.getScrollBarWidth());
 		}
 		$('#soucastky').isotope();
 		$("#sidebar").height(100);
@@ -65,12 +72,12 @@ ui.initBars = function (){
 			db.showItemsInCat(
 				Number($(this).attr("data-id")),
 				function(name, cat){ui.addPart(name,cat,true);},
-				function(){ui.appendIt();}
+				function(){ui.appendIt();$(window).resize()}
 			);
 		}else{
 			db.showItemsInCat(
 				Number($(this).attr("data-id")),
-				function(name,cat){ui.removePart(name,cat)},
+				function(name,cat){ui.removePart(name,cat);$(window).resize();},
 				function(){$("#soucastky").isotope('layout');}
 			);
 		}

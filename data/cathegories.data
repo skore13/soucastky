@@ -1,6 +1,4 @@
-0: Monitory
-	1: CRT
-	2: LCD
+1: Vše
 3: Součástky
 	4: Pasivní
 		5: Rezistory
@@ -9,3 +7,4 @@
 		8: Cathegorie 1
 		9: CPU
 	10: Rebel
+	11: Něco
