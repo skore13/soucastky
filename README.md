@@ -35,7 +35,7 @@ Ve formátu dsv(delimiter separated values) se znakem tabulátoru jako oddělova
 
 Sloupce jsou popořadě:
 
-1.	X - značí pořadí šuplíčku od spodku skříně (počítáme od 1)
-1.	Y - značí pořadí šuplíčku od levého okraje skříně (počítáme od 1)
+1.	X - značí pořadí šuplíčku od horního okraje skříně (počítáme od 0)
+1.	Y - značí pořadí šuplíčku od levého okraje skříně (počítáme od 0)
 1.	CAT - ID kategorie ze souboru cathegories.data
 1.	NAME - Název součástky
