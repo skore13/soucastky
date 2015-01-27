@@ -34,6 +34,9 @@ var db = {
 			  	{keyPath: "timeStamp"}
 			);
 			objectStore.createIndex("id", "id", {unique: false});
+
+			objectStore.createIndex("x", "x", {unique: false});
+			objectStore.createIndex("y", "y", {unique: false});
 			
 			localStorage.parts = -1;
 		}
@@ -52,14 +55,16 @@ var db = {
 		console.log("Error!");
 		console.dir(e);
 	},
-	addPart: function(name, cathegory, done){
+	addPart: function(name, cathegory, x, y, done){
 		var dtb = db.db;
 		var trans = dtb.transaction(["parts"], "readwrite");
 		var store = trans.objectStore("parts");
 		var request = store.put({
 			"name": name,
 			"cathegory": cathegory,
-			"timeStamp" : new Date().getTime()
+			"timeStamp" : new Date().getTime(),
+			"x" : x,
+			"y" : y
 		});
 
 		trans.oncomplete = function(e) {
@@ -97,7 +102,7 @@ var db = {
 		request.onsuccess = function(e){
 			var cursor = e.target.result;
 			if (cursor) {
-				cb(cursor.value["name"], cursor.value.cathegory);
+				cb(cursor.value["name"], cursor.value.cathegory, cursor.value["x"], cursor.value["y"]);
 				cursor.continue();
 			}else{
 				lastloaded();

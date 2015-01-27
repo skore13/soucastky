@@ -71,7 +71,7 @@ ui.initBars = function (){
 		if($(this).is(".selected")){
 			db.showItemsInCat(
 				Number($(this).attr("data-id")),
-				function(name, cat){ui.addPart(name,cat,true);},
+				function(name, cat,x,y){ui.addPart(name,cat,x,y,true);},
 				function(){ui.appendIt();$(window).resize()}
 			);
 		}else{

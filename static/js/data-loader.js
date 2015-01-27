@@ -66,11 +66,13 @@ var loader = {
 			var vals = line.split("	");
 			var name = vals[3];
 			var cathegory = Number(vals[2]);
+			var x = Number(vals[0]);
+			var y = Number(vals[1]);
 			if(name==undefined){
 				if(id+1<lines.length)
 					this.loadPartRec(lines,id+1);
 			}else{
-				db.addPart(name, cathegory, function(){
+				db.addPart(name, cathegory, x, y, function(){
 					if(id+1<lines.length)
 						loader.loadPartRec(lines,id+1);
 				});

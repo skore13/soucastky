@@ -21,10 +21,11 @@ ui.filter = function (){
 	$(window).resize();
 }
 ui.toBeAppended = "";
-ui.addPart = function(name, cathegory, wait) {
+ui.addPart = function(name, cathegory, x, y, wait) {
 	ui.toBeAppended+='<div class="soucastka soucastka-cathegory-'+cathegory+'" id="soucastka-'+encodeURI(name).replace(/[\.()%,\/?:@&=+$#]/g,"-")+'"> \
 				<div class="name">'+name+'</div> \
 				<div class="cathegory">'+loader.cathegories[Number(cathegory)]+'</div> \
+				<div class="coords">'+x+'|'+y+'</div> \
 			  </div>';
 	if(wait){
 	}else{
