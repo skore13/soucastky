@@ -75,11 +75,7 @@ ui.initBars = function (){
 				function(){ui.appendIt();$(window).resize()}
 			);
 		}else{
-			db.showItemsInCat(
-				Number($(this).attr("data-id")),
-				function(name,cat){ui.removePart(name,cat);$(window).resize();},
-				function(){$("#soucastky").isotope('layout');}
-			);
+			ui.removeCathegory($(this).attr("data-id"));
 		}
 		ui.filter();
 	});

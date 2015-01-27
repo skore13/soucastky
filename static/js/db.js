@@ -53,7 +53,6 @@ var db = {
 		console.dir(e);
 	},
 	addPart: function(name, cathegory, done){
-		console.log("adding "+name+"@"+cathegory);
 		var dtb = db.db;
 		var trans = dtb.transaction(["parts"], "readwrite");
 		var store = trans.objectStore("parts");
@@ -64,7 +63,6 @@ var db = {
 		});
 
 		trans.oncomplete = function(e) {
-			console.log("done");
 			if(done==undefined){}else
 				done();
 		};
@@ -86,14 +84,12 @@ var db = {
 			if(!!result == false)
 			  return;
 
-			console.log(result.value);
 			result.continue();
 		};
 
 		cursorRequest.onerror = db.onerror;
 	},
 	showItemsInCat: function(cathegory, cb, lastloaded) {
-		console.log("showing items in cat "+cathegory);
 		var transaction = db.db.transaction('parts','readonly');
 		var store = transaction.objectStore('parts');
 		var index = store.index('cathegory');
@@ -101,7 +97,6 @@ var db = {
 		request.onsuccess = function(e){
 			var cursor = e.target.result;
 			if (cursor) {
-				console.log(cursor.value);
 				cb(cursor.value["name"], cursor.value.cathegory);
 				cursor.continue();
 			}else{

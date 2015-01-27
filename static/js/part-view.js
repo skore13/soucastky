@@ -22,7 +22,7 @@ ui.filter = function (){
 }
 ui.toBeAppended = "";
 ui.addPart = function(name, cathegory, wait) {
-	ui.toBeAppended+='<div class="soucastka" id="soucastka-'+name.replace(/ /g,"-").replace(/\./g,"-")+'"> \
+	ui.toBeAppended+='<div class="soucastka soucastka-cathegory-'+cathegory+'" id="soucastka-'+encodeURI(name).replace(/[\.()%,\/?:@&=+$#]/g,"-")+'"> \
 				<div class="name">'+name+'</div> \
 				<div class="cathegory">'+loader.cathegories[Number(cathegory)]+'</div> \
 			  </div>';
@@ -37,5 +37,8 @@ ui.appendIt = function() {
 	ui.toBeAppended = "";
 }
 ui.removePart = function(name, cathegory) {
-	$("#soucastky").isotope("remove",$("#soucastka-"+name.replace(/ /g,"-").replace(/\./g,"-")));
+	$("#soucastky").isotope("remove",$("#soucastka-"+encodeURI(name).replace(/[\.()%,/?:@&=+$#]/g,"-")));
+}
+ui.removeCathegory = function(cathegoryID) {
+	$("#soucastky").isotope("remove",$(".soucastka-cathegory-"+cathegoryID));
 }

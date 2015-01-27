@@ -10,7 +10,6 @@ var loader = {
 	builder: "",
 	load: function() {
 		if(localStorage.length == 0){
-			console.log("null");
 			localStorage.cathegories = -1;
 			localStorage.parts = -1;
 		} 
